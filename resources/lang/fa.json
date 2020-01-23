@@ -1,0 +1,16 @@
+{
+    "Login" : "ورود",
+    "E-Mail Address" : "پست الکترونیک",
+    "Password" : "کلمه عبور",
+    "Confirm Password" : "تکرار کلمه عبور",
+    "Remember Me" : "مرا به خاطر بسپار",
+    "Forgot Your Password?" : "کلمه عبور را فراموش کرده اید؟",
+    "Register" : "ثبت نام",
+    "Full name" : "نام و نام خانوادگی",
+    "Gender" : "جنسیت",
+    "Avatar" : "تصویر پروفایل",
+    "I have already registered." : "قبلا ثبت نام کرده ام.",
+    "Reset Password" : "بازیابی کلمه عبور",
+    "Send Password Reset Link" : "ارسال لینک بازیابی",
+    "Logout" : "خروج"
+}
