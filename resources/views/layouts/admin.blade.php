@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>سامانه ارزیابی شخصیت</title>
+    <title>{{ __('Personality Assessment System') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,11 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- app css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    @if(config('app.locale') === 'fa')
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('assets/css/app-ltr.css') }}">
+    @endif
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -42,7 +46,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('admin.home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">پنل مدیریت</span>
+            <span class="brand-text font-weight-light">{{ __('Admin Dashboard') }}</span>
         </a>
 
         <!-- Sidebar -->
@@ -69,7 +73,7 @@
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
-                                    پرسشنامه
+                                    {{ __('Questionnaire') }}
                                     <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
@@ -77,25 +81,25 @@
                                 <li class="nav-item">
                                     <a href="{{ route('questionnaire.index') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>پرسشنامه ها</p>
+                                        <p>{{ __('Questionnaires') }}</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('questionnaire.create') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>افزودن پرسشنامه</p>
+                                        <p>{{ __('Add Questionnaire') }}</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('admin.home') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>پرسشنامه های تکمیل شده</p>
+                                        <p>{{ __('Completed Questionnaires') }}</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('admin.payment') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>تراکنش ها</p>
+                                        <p>{{ __('Transactions') }}</p>
                                     </a>
                                 </li>
                             </ul>

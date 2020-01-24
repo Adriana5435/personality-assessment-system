@@ -2,23 +2,23 @@
 
 @section('heading')
     <h1 class="m-0 text-dark">
-        تیپ نماهای «{{ $questionnaire->title }}»
-        <a href="{{ route('questionnaire.typeindicator.create', $questionnaire->id) }}" class="btn btn-success btn-lg">افزودن تیپ نما</a>
+        {{ __('Type Indicators of') }} «{{ $questionnaire->title }}»
+        <a href="{{ route('questionnaire.typeindicator.create', $questionnaire->id) }}" class="btn btn-success btn-lg">{{ __('Add Type Indicator') }}</a>
     </h1>
 @endsection
 
 @section('content')
     <div class="card-header">
-        <h3 class="card-title">فهرست تیپ نماها</h3>
+        <h3 class="card-title">{{ __('List of Type Indicators') }}</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
         <table class="table table-striped">
             <tbody>
             <tr>
-                <th>عنوان فارسی</th>
-                <th>عنوان انگلیسی</th>
-                <th>نماد</th>
+                <th>{{ __('Persian Title') }}</th>
+                <th>{{ __('English Title') }}</th>
+                <th>{{ __('Symbol') }}</th>
             </tr>
             @forelse($typeindicators as $typeindicator)
                 <tr>
@@ -28,7 +28,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="3">هنوز تیپ نمایی ثبت نشده است.</td>
+                    <td colspan="3">{{ __('No type indicators have been added yet.') }}</td>
                 </tr>
             @endforelse
             </tbody>

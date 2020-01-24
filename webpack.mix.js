@@ -21,6 +21,7 @@ mix.options({
 mix.js('resources/js/app.js', 'public/assets/js')
     .js('resources/js/adminlte.js', 'public/assets/js')
     .sass('resources/sass/app.scss', 'public/assets/css')
+    .sass('resources/sass/app-ltr.scss', 'public/assets/css')
     .copy([
         'resources/images/head.png',
         'resources/images/logo.png'

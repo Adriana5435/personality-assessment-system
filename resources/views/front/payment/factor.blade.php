@@ -34,23 +34,23 @@
 
             <div id="factor_header">
                 <div id="header_right">
-                    <div id="header_boxr">صورت حساب
+                    <div id="header_boxr">{{ __('Invoice') }}
                         <span>
                             @if(auth()->user()->gender == 1)
-                                خانم
+                                {{ __('Ms.') }}
                             @else
-                                آقای
+                                {{ __('Mr.') }}
                             @endif
                          </span>
                         :<span> {{ auth()->user()->name }}</span>
                     </div>
                 </div>
                 <div id="header_center">
-                    <div id="center_top"><h3>فاکتور فروش</h3></div>
+                    <div id="center_top"><h3>{{ __('Sales Invoice') }}</h3></div>
                 </div>
                 <div id="header_left">
-                    <div id="header_boxl">تاریخ:<input id="input3" type="text" value=""></div>
-                    <div id="header_boxl">شماره فاکتور:<input id="input4" type="text"></div>
+                    <div id="header_boxl">{{ __('Date') }}:<input id="input3" type="text" value=""></div>
+                    <div id="header_boxl">{{ __('Invoice Number') }}<input id="input4" type="text"></div>
                 </div>
             </div>
 
@@ -58,19 +58,19 @@
                 <table class="table1">
                     <tbody><tr>
                         <td width="5%">
-                            ردیف
+                            {{ __('Row') }}
                         </td>
                         <td width="35%">
-                            نام آزمون
+                            {{ __('Test Name') }}
                         </td>
                         <td width="10%">
-                            تعداد
+                            {{ __('Quantity') }}
                         </td>
                         <td width="25%">
-                            بهای واحد (تومان)
+                            {{ __('Unit Price (Toman)') }}
                         </td>
                         <td width="25%">
-                            مبلغ کل (تومان)
+                            {{ __('Total Amount (Toman)') }}
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +79,7 @@
                             {{ $questionnaire->title }}
                         </td>
                         <td style="background-color: rgb(255, 255, 255);">
-                            ۱
+                            1
                         </td>
                         <td>
                             {{ number_format($questionnaire->price) }}
@@ -92,7 +92,7 @@
                 <table class="table2">
                     <tbody><tr>
                         <td width="150">
-                            جمع کل فاکتور
+                            {{ __('Total Invoice Amount') }}
                         </td>
                         <td class="total">
                             {{ number_format($questionnaire->price) }}
@@ -100,7 +100,7 @@
                     </tr>
                     <tr>
                         <td>
-                            مالیات بر ارزش افزوده
+                            {{ __('Value Added Tax') }}
                         </td>
                         <td class="maliat">
                             -
@@ -108,7 +108,7 @@
                     </tr>
                     <tr>
                         <td>
-                            تخفیف
+                            {{ __('Discount') }}
                         </td>
                         <td class="takhfif">
                             -
@@ -116,7 +116,7 @@
                     </tr>
                     <tr>
                         <td>
-                            مبلغ قابل پرداخت
+                            {{ __('Amount Payable') }}
                         </td>
                         <td class="alltotal">
                             {{ number_format($questionnaire->price) }}
@@ -127,7 +127,7 @@
             </div>
 
             <div id="factor_footer">
-                <div id="footer_top">توضیحات:
+                <div id="footer_top">{{ __('Description') }}:
                     {{ $questionnaire->description }}
                 </div>
             </div>
@@ -239,7 +239,7 @@
     <div class="container" style="text-align: center">
         <form action="{{ route('front.payment.redirect', $questionnaire->id) }}" method="post">
             @csrf
-            <input type="submit" value="پرداخت">
+            <input type="submit" value="{{ __('Payment') }}">
         </form>
     </div>
 </section>

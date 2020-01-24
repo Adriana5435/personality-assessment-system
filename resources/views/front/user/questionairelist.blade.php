@@ -1,8 +1,8 @@
 <section class="pricing py-5">
     <div class="container">
         <div class="pricing-title">
-            <h3>آزمون ها</h3>
-            <p>برای شرکت در آزمون یکی از گزینه های زیر را انتخاب و بر روی دکمه ثبت نام کلیک کنید.</p>
+            <h3>{{ __('Assessments') }}</h3>
+            <p>{{ __("Register for the test by selecting one of the options below and clicking the 'Register' button.") }}</p>
         </div>
         <div class="row">
             @forelse($questionnaires as $quest)
@@ -11,15 +11,15 @@
                         <div class="card-body">
                             <h2 class="text-center">{{ $quest->title }}</h2>
                             <hr>
-                            <h6 class="card-price text-center">{{ number_format($quest->price) }}<span class="period">ریال</span></h6>
+                            <h6 class="card-price text-center">{{ number_format($quest->price) }}<span class="period">{{ __('Rial') }}</span></h6>
                             <hr>
                             <p class="text-center">{{ $quest->description }}</p>
-                            <a href="{{ route('front.payment.factor', [$quest->id]) }}" class="btn btn-block btn-primary">ثبت نام</a>
+                            <a href="{{ route('front.payment.factor', [$quest->id]) }}" class="btn btn-block btn-primary">{{ __('Register') }}</a>
                         </div>
                     </div>
                 </div>
             @empty
-                <h1>در حال حاضر پرسشنامه ای وجود ندارد.</h1>
+                <h1>{{ __('At the moment, there are no questionnaires available.') }}</h1>
             @endforelse
         </div>
     </div>

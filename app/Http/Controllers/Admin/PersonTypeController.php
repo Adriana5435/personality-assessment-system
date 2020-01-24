@@ -39,7 +39,7 @@ class PersonTypeController extends Controller
         $symbols = getTypeKeys($questionnaire->id);
 
         if (!$symbols) {
-            return redirect()->route('questionnaire.index', $questionnaire)->with('error', 'هنوز دوقطبی برای این پرسشنامه تعریف نشده است.');
+            return redirect()->route('questionnaire.index', $questionnaire)->with('error', __('No pair has been defined for this questionnaire yet.'));
         }
 
         return view('admin.persontype.create', ['questionnaire' => $questionnaire, 'personTypes' => $symbols]);
@@ -64,7 +64,7 @@ class PersonTypeController extends Controller
         // Create person type details.
         $personType->details()->createMany($items);
 
-        return redirect()->route('questionnaire.persontype.index', $questionnaire)->with('success', 'تیپ شخصیتی با موفقیت ذخیره شد.');
+        return redirect()->route('questionnaire.persontype.index', $questionnaire)->with('success', __('Personality type was saved successfully.'));
     }
 
     /**
@@ -107,7 +107,7 @@ class PersonTypeController extends Controller
             PersonTypeDetail::updateOrCreate(['person_type_id' => $personType, 'key' => $item['key']], ['value' => $item['value']]);
         }
 
-        return redirect()->route('questionnaire.persontype.index', [$questionnaire, $personType])->with('success', 'گزارش تیپ شخصیتی با موفقیت بروزرسانی شد.');
+        return redirect()->route('questionnaire.persontype.index', [$questionnaire, $personType])->with('success', __('Personality type report was updated successfully.'));
     }
 
 }

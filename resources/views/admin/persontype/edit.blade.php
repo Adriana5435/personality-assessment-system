@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('heading')
-    <h1 class="m-0 text-dark">ویژگی های تیپ های شخصیتی</h1>
+    <h1 class="m-0 text-dark">{{ __('Personality Type Attributes') }}</h1>
 @endsection
 
 @section('content')
@@ -9,14 +9,14 @@
         @csrf
         @method('put')
         <div class="card-header">
-            <h3 class="card-title">ویرایش تیپ شخصیتی برای «{{ $questionnaire->title }}»</h3>
+            <h3 class="card-title">{{ __('Edit Personality Type for') }} «{{ $questionnaire->title }}»</h3>
         </div>
 
         <div class="card-body">
             <div class="form-group">
-                <label for="personType">تیپ شخصیتی</label>
+                <label for="personType">{{ __('Personality Type') }}</label>
                 <select id="personType" name="type" class="form-control  @error('type') is-invalid @enderror">
-                    <option selected>انتخاب کنید</option>
+                    <option selected>{{ __('Select an option') }}</option>
                     @foreach($personTypes as $personType)
                         <option value="{{ $personType }}" @if($thePersonType->type == $personType) selected @endif>{{ $personType }}</option>
                     @endforeach
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="reportType">نوع گزارش</label>
+                    <label for="reportType">{{ __('Report Type') }}</label>
                     <select id="reportType" name="report_type" class="form-control  @error('report_type') is-invalid @enderror">
                         @foreach(\App\PersonType::getReportList() as $key => $report)
                             <option value="{{ $key }}" @if($thePersonType->report_type == $key) selected @endif>{{$report}}</option>
@@ -40,14 +40,14 @@
             </div>
             @foreach(config('questionnaire.person_type_details') as $key => $detailItem)
                 <div class="form-group">
-                    <label>{{ $detailItem }}</label>
+                    <label>{{ __($detailItem) }}</label>
                     <input type="hidden" name="item[{{ $key }}][]" value="{{ $key }}">
-                    <textarea name="item[{{$key}}][]" class="form-control" rows="3" placeholder="{{ $detailItem }}">{{ $details->where('key', $key)->first()['value']}}</textarea>
+                    <textarea name="item[{{$key}}][]" class="form-control" rows="3" placeholder="{{ __($detailItem) }}">{{ $details->where('key', $key)->first()['value']}}</textarea>
                 </div>
             @endforeach
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary float-left">بروزرسانی</button>
+            <button type="submit" class="btn btn-primary float-left">{{ __('Update') }}</button>
         </div>
     </form>
 @endsection

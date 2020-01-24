@@ -88,6 +88,6 @@ class PairController extends Controller
         // Update the pair attributes using the validated request data.
         $pair->update($request->validated());
 
-        return redirect()->route('questionnaire.pair.index', $questionnaire)->with('success', 'دوقطبی با موفقیت بروزرسانی شد.');
+        return redirect()->route('questionnaire.pair.index', $questionnaire)->with('success', __('The pair was updated successfully.'));
     }
 }

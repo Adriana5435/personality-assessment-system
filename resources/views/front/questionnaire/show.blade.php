@@ -19,13 +19,13 @@
                         <label><input type="radio" name="q{{ $question->id }}" value="2" @if(old('q' . $question->id) == 2) checked @endif> {{ $question->option_second }}</label>
                     </div>
                     @error('q' . $question->id)
-                    <span class="text-danger">لطفا یکی از دو گزینه را انتخاب کنید.</span>
+                    <span class="text-danger">{{ __('Please choose one of two options.') }}</span>
                     @enderror
                 </div>
                 <hr>
             @endforeach
             <div class="row">
-                <input type="submit" value="تکمیل">
+                <input type="submit" value="{{ __('Submit') }}">
             </div>
         </form>
     </div>

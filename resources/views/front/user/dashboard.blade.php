@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('header')
-    <h1>پنل کاربری</h1>
+    <h1>{{ __('User Dashboard') }}</h1>
 @endsection
 
 @section('content')
@@ -12,18 +12,18 @@
                 <p>{{ auth()->user()->name }}</p>
             </div>
             <div class="card-header">
-                <h3 class="card-title">فهرست آزمون ها</h3>
+                <h3 class="card-title">{{ __('List of Tests') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
                 <table class="table table-striped">
                     <tbody>
                     <tr>
-                        <th>نام آزمون</th>
-                        <th>وضعیت پرداخت</th>
-                        <th>وضعیت آزمون</th>
-                        <th>تیپ شخصیتی</th>
-                        <th>دریافت نتیجه</th>
+                        <th>{{ __('Test Name') }}</th>
+                        <th>{{ __('Payment Status') }}</th>
+                        <th>{{ __('Exam Status') }}</th>
+                        <th>{{ __('Personality Type') }}</th>
+                        <th>{{ __('Get Result') }}</th>
                     </tr>
                     @forelse($submits as $submit)
                     <tr>
@@ -35,7 +35,7 @@
                             @if($submit->isSubmited())
                                 <span class="text-primary">{{ $submit->submitedName }}</span>
                             @else
-                                <a href="{{ route('front.questionnaire.show', [$submit->questionnaire, $submit]) }}" class="btn btn-success">شروع آزمون</a>
+                                <a href="{{ route('front.questionnaire.show', [$submit->questionnaire, $submit]) }}" class="btn btn-success">{{ __('Start Test') }}</a>
                             @endif
                         </td>
                         <td>
@@ -47,7 +47,7 @@
                         </td>
                         <td>
                             @if($submit->isSubmited())
-                                <a href="{{ route('front.questionnaire.report', [$submit->questionnaire, $submit]) }}" class="btn btn-success">نمایش نتیجه</a>
+                                <a href="{{ route('front.questionnaire.report', [$submit->questionnaire, $submit]) }}" class="btn btn-success">{{ __('View Result') }}</a>
                             @else
                                 <span class="text-danger">-</span>
                             @endif
@@ -55,7 +55,7 @@
                     </tr>
                     @empty
                         <tr>
-                            <td colspan="5">شما هنوز در هیچ آزمونی شرکت نکرده اید.</td>
+                            <td colspan="5">{{ __("You haven't participated in any exams yet.") }}</td>
                         </tr>
                     @endforelse
                     </tbody>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('heading')
-    <h1 class="m-0 text-dark">لیست پرسشنامه های برگزار شده</h1>
+    <h1 class="m-0 text-dark">{{ __('Completed Questionnaires List') }}</h1>
 @endsection
 
 @section('before-content')
@@ -14,17 +14,17 @@
 
 @section('content')
     <div class="card-header">
-        <h3 class="card-title">فهرست پرسشنامه های تکمیل شده</h3>
+        <h3 class="card-title">{{ __('Completed Questionnaires List') }}</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
         <table class="table table-striped">
             <tbody>
             <tr>
-                <th>نام کاربر</th>
-                <th>پرسشنامه</th>
-                <th>تیپ شخصیتی</th>
-                <th>نتیجه</th>
+                <th>{{ __('User Name') }}</th>
+                <th>{{ __('Questionnaire') }}</th>
+                <th>{{ __('Personality Type') }}</th>
+                <th>{{ __('Result') }}</th>
             </tr>
             @forelse($submits as $submit)
                 <tr>
@@ -35,7 +35,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="3">هنوز پرسشنامه ای توسط کاربران تکمیل نشده است.</td>
+                    <td colspan="3">{{ __('No questionnaires have been completed by users yet.') }}</td>
                 </tr>
             @endforelse
             </tbody>
@@ -44,10 +44,10 @@
     <!-- /.card-body -->
 
     <div class="card-header">
-        <h3 class="card-title">دانلود اطلاعات کاربران</h3>
+        <h3 class="card-title">{{ __('Download User Data') }}</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <a href="{{ route('admin.users.export') }}" class="btn btn-success">Excel</a>
+        <a href="{{ route('admin.users.export') }}" class="btn btn-success">{{ __('Download Excel File') }}</a>
     </div>
 @endsection

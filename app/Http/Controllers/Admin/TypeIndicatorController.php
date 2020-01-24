@@ -50,7 +50,7 @@ class TypeIndicatorController extends Controller
         // Create a new type indicator associated with the questionnaire.
         $questionnaire->typeIndicators()->create($request->validated());
 
-        return redirect()->route('questionnaire.typeindicator.index', $questionnaire)->with('success', 'تیپ نما با موفقیت ذخیره شد.');
+        return redirect()->route('questionnaire.typeindicator.index', $questionnaire)->with('success', __('The type indicator was saved successfully.'));
     }
 
     /**
@@ -89,7 +89,7 @@ class TypeIndicatorController extends Controller
         // Update the type indicator attributes.
         $typeIndicatorModel->update($request->validated());
 
-        return redirect()->route('questionnaire.typeindicator.index', $questionnaire)->with('success', 'تیپ نما با موفقیت بروزرسانی شد.');
+        return redirect()->route('questionnaire.typeindicator.index', $questionnaire)->with('success', __('The type indicator was updated successfully.'));
     }
 
 }

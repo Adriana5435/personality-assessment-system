@@ -45,7 +45,7 @@ class QuestionnairesController extends Controller
         // Create a new questionnaire with the validated data from the request.
         Questionnaire::create($request->validated());
 
-        return redirect()->route('questionnaire.index')->with('success', 'پرسشنامه با موفقیت ذخیره شد.');
+        return redirect()->route('questionnaire.index')->with('success', __('The questionnaire was saved successfully.'));
     }
 
     /**
@@ -71,7 +71,7 @@ class QuestionnairesController extends Controller
         // Update the questionnaire with the validated data from the request.
         $questionnaire->update($request->validated());
 
-        return redirect()->route('questionnaire.index')->with('success', 'پرسشنامه با موفقیت بروزرسانی شد.');
+        return redirect()->route('questionnaire.index')->with('success', __('The questionnaire was updated successfully.'));
     }
 
     /**
@@ -100,7 +100,7 @@ class QuestionnairesController extends Controller
             return renderPDF($submit);
         }
 
-        return redirect(route('admin.home'))->with('error', 'گزارش مورد نظر یافت نشد.');
+        return redirect(route('admin.home'))->with('error', __('The requested report was not found.'));
     }
 
     /**

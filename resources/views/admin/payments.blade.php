@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('heading')
-    <h1 class="m-0 text-dark">لیست تراکنش ها</h1>
+    <h1 class="m-0 text-dark">{{ __('Transactions List') }}</h1>
 @endsection
 
 @section('before-content')
@@ -14,19 +14,19 @@
 
 @section('content')
     <div class="card-header">
-        <h3 class="card-title">فهرست تراکنش ها</h3>
+        <h3 class="card-title">{{ __('Transactions List') }}</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
         <table class="table table-striped">
             <tbody>
             <tr>
-                <th>نام کاربر</th>
-                <th>پرسشنامه</th>
-                <th>قیمت</th>
-                <th>کد پیگیری</th>
-                <th>وضعیت</th>
-                <th>شماره کارت</th>
+                <th>{{ __('User Name') }}</th>
+                <th>{{ __('Questionnaire') }}</th>
+                <th>{{ __('Price') }}</th>
+                <th>{{ __('Tracking Code') }}</th>
+                <th>{{ __('Status') }}</th>
+                <th>{{ __('Card Number') }}</th>
             </tr>
             @forelse($submits as $submit)
                 <tr>
@@ -39,7 +39,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6">هنوز تراکنشی انجام نشده است.</td>
+                    <td colspan="6">{{ __('No transactions have been performed yet.') }}</td>
                 </tr>
             @endforelse
             </tbody>

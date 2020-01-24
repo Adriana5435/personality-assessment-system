@@ -56,7 +56,7 @@ class QuestionController extends Controller
         // Redirect back to the create form with a success message.
         $typeIndicators = $questionnaire->typeIndicators;
         $pairs = $questionnaire->pairs;
-        return redirect()->route('questionnaire.question.create', ['questionnaire' => $questionnaire, 'typeindicators' => $typeIndicators, 'pairs' => $pairs])->with('success', 'سوال با موفقیت افزوده شد.');
+        return redirect()->route('questionnaire.question.create', ['questionnaire' => $questionnaire, 'typeindicators' => $typeIndicators, 'pairs' => $pairs])->with('success', __('The question was saved successfully.'));
     }
 
     /**
@@ -92,7 +92,7 @@ class QuestionController extends Controller
         // Update the question using the validated request data.
         $question->update($request->validated());
 
-        return redirect()->route('questionnaire.question.index', ['questionnaire' => $questionnaire])->with('success', 'سوال با موفقیت بروزرسانی شد.');
+        return redirect()->route('questionnaire.question.index', ['questionnaire' => $questionnaire])->with('success', __('The question was updated successfully.'));
     }
 
 }

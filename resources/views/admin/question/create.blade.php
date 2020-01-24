@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('heading')
-    <h1 class="m-0 text-dark">سوالات</h1>
+    <h1 class="m-0 text-dark">{{ __('Questions') }}</h1>
 @endsection
 
 @section('footerScript')
@@ -33,13 +33,13 @@
         @csrf
         <input type="hidden" value="{{ $questionnaire->id }}" name="questionnaire_id">
         <div class="card-header">
-            <h3 class="card-title">افزودن سوال برای «{{ $questionnaire->title }}»</h3>
+            <h3 class="card-title">{{ __('Add Question for') }} «{{ $questionnaire->title }}»</h3>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
-                        <label for="pairId">انتخاب دوقطبی مربوط به این سوال</label>
+                        <label for="pairId">{{ __('Select the relevant pair for this question') }}</label>
                         <select id="pairId" name="pair_id" class="form-control  @error('pair_id') is-invalid @enderror">
                             @foreach($pairs as $pair)
                                 <option value="{{ $pair->id }}" @if(old('pair_id') == $pair->id) selected @endif>{{ $pair->getPairTitle() }}</option>
@@ -51,8 +51,8 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <label for="title">متن سوال</label>
-                    <input id="title" type="text" name="title" value="{{ @old('title') }}" class="form-control  @error('title') is-invalid @enderror" placeholder="متن سوال را وارد کنید">
+                    <label for="title">{{ __('Question Text') }}</label>
+                    <input id="title" type="text" name="title" value="{{ @old('title') }}" class="form-control  @error('title') is-invalid @enderror" placeholder="{{ __('Enter the question text') }}">
                     @error('title')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-3">
                     <div class="form-group">
-                        <label for="typeIndicator1">تیپ نمای گزینه اول</label>
+                        <label for="typeIndicator1">{{ __('Type Indicator of Option 1') }}</label>
                         <select id="typeIndicator1" name="type_indicator_1_id" class="form-control  @error('type_indicator_1_id') is-invalid @enderror">
                             @foreach($typeindicators as $typeindicator)
                                 <option value="{{ $typeindicator->id }}" @if(old('type_indicator_1_id') == $typeindicator->id) selected @endif>{{ $typeindicator->title_fa }}</option>
@@ -74,8 +74,8 @@
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <label for="point1">امتیاز گزینه اول</label>
-                        <input id="point1" type="number" name="point_first" value="{{ @old('point_first') }}" class="form-control  @error('point_first') is-invalid @enderror" placeholder="امتیاز گزینه اول را وارد کنید">
+                        <label for="point1">{{ __('Score for Option 1') }}</label>
+                        <input id="point1" type="number" name="point_first" value="{{ @old('point_first') }}" class="form-control  @error('point_first') is-invalid @enderror" placeholder="{{ __('Enter the score for option 1') }}">
                         @error('point_first')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -83,8 +83,8 @@
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="option1">متن گزینه اول</label>
-                        <input id="option1" type="text" name="option_first" value="{{ @old('option_first') }}" class="form-control  @error('option_first') is-invalid @enderror" placeholder="متن گزینه اول را وارد کنید">
+                        <label for="option1">{{ __('Option 1 Text') }}</label>
+                        <input id="option1" type="text" name="option_first" value="{{ @old('option_first') }}" class="form-control  @error('option_first') is-invalid @enderror" placeholder="{{ __('Enter the text for option 1') }}">
                         @error('option_first')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-3">
                     <div class="form-group">
-                        <label for="typeIndicator2">تیپ نمای گزینه دوم</label>
+                        <label for="typeIndicator2">{{ __('Type Indicator of  Option 2') }}</label>
                         <select id="typeIndicator2" name="type_indicator_2_id" class="form-control  @error('type_indicator_2_id') is-invalid @enderror">
                             @foreach($typeindicators as $typeindicator)
                                 <option value="{{ $typeindicator->id }}" @if(old('type_indicator_2_id') == $typeindicator->id) selected @endif>{{ $typeindicator->title_fa }}</option>
@@ -107,8 +107,8 @@
                 </div>
                 <div class="col-3">
                     <div class="form-group">
-                        <label for="point2">امتیاز گزینه دوم</label>
-                        <input id="point2" type="number" name="point_second" value="{{ @old('point_second') }}" class="form-control  @error('point_second') is-invalid @enderror" placeholder="امتیاز گزینه دوم را وارد کنید">
+                        <label for="point2">{{ __('Score for Option 2') }}</label>
+                        <input id="point2" type="number" name="point_second" value="{{ @old('point_second') }}" class="form-control  @error('point_second') is-invalid @enderror" placeholder="{{ __('Enter the score for option 2') }}">
                         @error('point_second')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -116,8 +116,8 @@
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="option2">متن گزینه دوم</label>
-                        <input id="option2" type="text" name="option_second" value="{{ @old('option_second') }}" class="form-control  @error('option_second') is-invalid @enderror" placeholder="متن گزینه دوم را وارد کنید">
+                        <label for="option2">{{ __('Option 2 Text') }}</label>
+                        <input id="option2" type="text" name="option_second" value="{{ @old('option_second') }}" class="form-control  @error('option_second') is-invalid @enderror" placeholder="{{ __('Enter the text for option 2') }}">
                         @error('option_second')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -126,7 +126,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary float-left">ذخیره</button>
+            <button type="submit" class="btn btn-primary float-left">{{ __('Save') }}</button>
         </div>
     </form>
 @endsection

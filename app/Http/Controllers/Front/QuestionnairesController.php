@@ -7,6 +7,7 @@ use App\Questionnaire;
 use App\Submit;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class QuestionnairesController extends Controller
@@ -24,7 +25,7 @@ class QuestionnairesController extends Controller
 
         if ($submit->isPaid()) {
             if (!empty($submit->submit_data)) {
-                return redirect(route('front.user.dashboard'))->with('error', 'آزمون مورد نظر قبلا تکمیل شده است.');
+                return redirect(route('front.user.dashboard'))->with('error', __('The desired test has already been completed.'));
             } else {
                 return view('front.questionnaire.show', compact('questionnaire', 'submit'));
             }
@@ -45,11 +46,11 @@ class QuestionnairesController extends Controller
         $user = auth()->user();
 
         if (!$questionnaire->canSubmit($user, $submit)) {
-            return redirect(route('front.user.dashboard'))->with('error', 'شما مجاز به تکمیل این آزمون نیستید');
+            return redirect(route('front.user.dashboard'))->with('error', __('You are not authorized to complete this test.'));
         }
 
         if (!empty($submit->submit_data)) {
-            return redirect(route('front.user.dashboard'))->with('error', 'آزمون مورد نظر قبلا تکمیل شده است.');
+            return redirect(route('front.user.dashboard'))->with('error', __('The desired test has already been completed.'));
         }
 
         // Save data
@@ -73,7 +74,7 @@ class QuestionnairesController extends Controller
      *
      * @param Questionnaire $questionnaire
      * @param Submit $submit
-     * @return RedirectResponse|View
+     * @return Response|RedirectResponse
      */
     public function report(Questionnaire $questionnaire, Submit $submit)
     {
@@ -84,6 +85,6 @@ class QuestionnairesController extends Controller
             return renderPDF($submit);
         }
 
-        return redirect(route('front.user.dashboard'))->with('error', 'شما مجاز به مشاهده این گزارش نیستید');
+        return redirect(route('front.user.dashboard'))->with('error', __('You are not authorized to view this report.'));
     }
 }

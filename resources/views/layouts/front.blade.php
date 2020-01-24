@@ -9,25 +9,29 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-    <title>سامانه ارزیابی شخصیت</title>
+    @if(config('app.locale') === 'fa')
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('assets/css/app-ltr.css') }}">
+    @endif
+    <title>{{ __('Personality Assessment System') }}</title>
 </head>
 <body class="welcome-body">
 <header>
     <div class="container">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="{{ env('APP_URL') }}">
+            <a class="navbar-brand" href="{{ config('app.url') }}">
                 <img src="{{ asset('assets/images/logo.png') }}" alt="">
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     @auth
-                        <li class="nav-item"><a class="nav-link" href="{{ route('front.user.dashboard') }}">پنل کاربری</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">خروج</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('front.user.dashboard') }}">{{ __('User Dashboard') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
                     @endauth
                     @guest
-                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">ثبت نام</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">ورود</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     @endguest
                 </ul>
             </div>

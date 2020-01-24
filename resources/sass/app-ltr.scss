@@ -1,0 +1,65 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+// VARIABLES AND MIXINS
+// ---------------------------------------------------
+@import "adminlte/variables";
+@import "adminlte/mixins";
+// Core
+// ---------------------------------------------------
+@import "adminlte/layout";
+// COMPONENTS
+// ---------------------------------------------------
+@import "adminlte/main-header";
+@import "adminlte/brand";
+@import "adminlte/main-sidebar";
+@import "adminlte/sidebar-mini";
+@import "adminlte/control-sidebar";
+@import "adminlte/dropdown";
+@import "adminlte/forms";
+@import "adminlte/progress-bars";
+@import "adminlte/small-box";
+@import "adminlte/cards";
+@import "adminlte/info-box";
+@import "adminlte/timeline";
+@import "adminlte/buttons";
+@import "adminlte/callout";
+@import "adminlte/alerts";
+@import "adminlte/navs";
+@import "adminlte/products";
+@import "adminlte/table";
+@import "adminlte/labels";
+@import "adminlte/direct-chat";
+@import "adminlte/users-list";
+@import "adminlte/carousel";
+@import "adminlte/social-widgets";
+// PAGES
+// ---------------------------------------------------
+@import "adminlte/mailbox";
+@import "adminlte/lockscreen";
+@import "adminlte/login_and_register";
+@import "adminlte/404_500_errors";
+@import "adminlte/invoice";
+@import "adminlte/profile";
+// Plugins
+// ---------------------------------------------------
+@import "adminlte/fullcalendar";
+@import "adminlte/select2";
+// Miscellaneous
+// ---------------------------------------------------
+@import "adminlte/miscellaneous";
+@import "adminlte/print";
+@import "adminlte/text";
+@import "adminlte/elevation";
+
+
+@import "blue";
+
+@import "custom-styles-ltr";
