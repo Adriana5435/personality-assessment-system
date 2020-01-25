@@ -11,6 +11,7 @@ Welcome to the Personality Assessment System project! This repository contains a
 - - [Database Structure](#database-structure)
 - - [Middleware](#middleware)
 - - [Webpack and Laravel Mix](#webpack-and-laravel-mix)
+- - [Unit Testing](#unit-testing)
 - [Getting Started](#getting-started)
 - - [Installation](#installation)
 - - [Usage](#usage)
@@ -53,6 +54,10 @@ Leveraging Laravel middleware to enhance the application:
 ### Webpack and Laravel Mix
 
 I have utilized Webpack and Laravel Mix to efficiently manage frontend assets and ensure optimal performance.
+
+### Unit Testing
+
+I have incorporated unit testing into this project to ensure functionality and maintain code quality.
 
 ## Getting Started
 
